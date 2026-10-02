@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mr. Ali 💙</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+font-family:Georgia,"Times New Roman",serif;color:#eef6ff;
+background:radial-gradient(circle at 20% 20%,rgba(100,170,255,.12),transparent 30%),
+radial-gradient(circle at 80% 80%,rgba(70,130,255,.12),transparent 30%),
+linear-gradient(135deg,#061225,#0b2345 48%,#020817);
+overflow-x:hidden
+}
+.hearts span{position:fixed;color:rgba(120,180,255,.18);font-size:24px;animation:float 8s linear infinite}
+.hearts span:nth-child(1){left:8%}.hearts span:nth-child(2){left:25%;animation-delay:2s}
+.hearts span:nth-child(3){left:48%;animation-delay:4s}.hearts span:nth-child(4){left:72%;animation-delay:1s}
+.hearts span:nth-child(5){left:90%;animation-delay:3s}
+@keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}15%{opacity:1}to{transform:translateY(-15vh) rotate(360deg);opacity:0}}
+.card{
+width:min(92%,720px);margin:30px auto;padding:42px 34px;text-align:center;
+border:1px solid rgba(255,255,255,.16);border-radius:28px;
+background:rgba(255,255,255,.07);backdrop-filter:blur(18px);
+box-shadow:0 25px 80px rgba(0,0,0,.4)
+}
+.lock{font-size:46px}
+h1{font-size:clamp(30px,7vw,54px);margin:8px 0}
+.subtitle{color:#a9c9f5;font:14px Arial;letter-spacing:2px;text-transform:uppercase}
+input{
+width:min(280px,100%);padding:15px 18px;border-radius:999px;
+border:1px solid rgba(255,255,255,.2);outline:none;
+background:rgba(0,0,0,.25);color:white;text-align:center;font-size:18px;letter-spacing:5px
+}
+input::placeholder{letter-spacing:1px;color:#8999ad}
+button{
+margin-top:14px;border:0;padding:13px 28px;border-radius:999px;
+background:#9bc5ff;color:#061225;font-weight:bold;cursor:pointer
+}
+#error{min-height:24px;margin-top:12px;color:#9fc9ff;font:14px Arial}
+#message{display:none;text-align:left;animation:reveal .8s ease}
+@keyframes reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.birthday{text-align:center;font-size:clamp(28px,6vw,44px);margin-bottom:22px}
+.letter{font-size:17px;line-height:1.9;color:#e8f1ff}
+.signature{text-align:center;margin-top:25px;color:#9fc9ff;font-size:19px}
+.small{text-align:center;margin-top:28px;font:12px Arial;color:#8999ad}
+</style>
+</head>
+<body>
+<div class="hearts">
+<span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span>
+</div>
+<main class="card">
+<section id="lockScreen">
+<div class="lock">🔐</div>
+<div class="subtitle">A little birthday surprise</div>
+<h1>For Mr. Ali 💙</h1>
+<p style="color:#bdcde3">Only someone who knows the secret can open this.</p>
+<input id="password" type="password" inputmode="numeric" maxlength="5" placeholder="enter the password">
+<br>
+<button onclick="unlock()">Unlock the surprise ✨</button>
+<div id="error"></div>
+</section>
+<section id="message">
+<div class="birthday">Happy Birthday, Mr. Ali ❤️🎂</div>
+<div class="letter">
+<p>I hope you know how genuinely special you are to me. We might fight over the smallest things, I might get annoyed at you for the most random reasons 😭, and sometimes we barely even talk, but somehow you still manage to mean a lot to me.</p>
+<p>I really love all the little things about us — our random conversations, stupid arguments, the laughs, and even the moments when we’re just annoying each other. 😂❤️</p>
+<p>You’re someone I’m really glad I met, and I honestly hope you always stay happy, keep smiling, and get everything you’ve been wishing for.</p>
+<p>I may not say it all the time, but I really do care about you. And no matter how much I annoy you or get annoyed at you, you’ll always be someone very special to me. 🤍</p>
+<p>So, Happy Birthday once again, Mr. Aliii. 🫶🏻<br>
+Have the best day, birthday boy. You deserve to enjoy it ❤️</p>
+</div>
+<div class="signature">Made with a little birthday magic ✨</div>
+</section>
+</main>
+<script>
+function unlock(){
+const input=document.getElementById("password");
+const error=document.getElementById("error");
+if(input.value==="07270"){
+document.getElementById("lockScreen").style.display="none";
+document.getElementById("message").style.display="block";
+}else{
+error.textContent="Wrong password 😭 Try this again.";
+input.value="";
+input.focus();
+}
+}
+document.getElementById("password").addEventListener("keydown",function(e){
+if(e.key==="Enter") unlock();
+});
+</script>
+</body>
+</html>
